@@ -2,6 +2,19 @@
 #include "../engine/vmatrix.h"
 #include "../tier0/Color.h"
 #include "../vgui/ISurfaceV30.h"
+
+enum FontDrawType_t
+{
+	// Use the "additive" value from the scheme file
+	FONT_DRAW_DEFAULT = 0,
+
+	// Overrides
+	FONT_DRAW_NONADDITIVE,
+	FONT_DRAW_ADDITIVE,
+
+	FONT_DRAW_TYPE_COUNT = 2,
+};
+
 // Auto reconstructed from vtable block @ 0x000D7724
 // from "vguimatsurface.dylib", by ida_vtables.idc
 // Modified VTable dumper script obviously by t.me/Gaztoof.
@@ -35,7 +48,7 @@ public:
 	/*19*/	virtual void* DrawSetTextColor(Color) = 0;
 	/*20*/	virtual void* DrawSetTextPos(int, int) = 0;
 	/*21*/	virtual void* DrawGetTextPos(int&, int&) = 0;
-	/*22*/	virtual void* DrawPrintText(wchar_t const*, int, void*) = 0;
+	/*22*/	virtual void* DrawPrintText(wchar_t const*, int, FontDrawType_t drawType = FONT_DRAW_DEFAULT) = 0;
 	/*23*/	virtual void* DrawUnicodeChar(wchar_t, void*) = 0;
 	/*24*/	virtual void* DrawFlushText(void) = 0;
 	/*25*/	virtual void* CreateHTMLWindow(void*, unsigned int) = 0;
