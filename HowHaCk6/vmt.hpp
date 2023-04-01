@@ -1,4 +1,6 @@
 #pragma once
+#ifndef VMT_H
+#define VMT_H
 
 #include <Windows.h>
 
@@ -184,3 +186,5 @@ void VMTHook::SetPadding(int pad)
 {
 	padding = pad;
 }
+
+#endif
