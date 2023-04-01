@@ -22,6 +22,9 @@
     <Filter Include="Archivos de encabezado\hooked">
       <UniqueIdentifier>{8615eda2-d149-45a7-8743-3b740c7f14ac}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Archivos de encabezado\modules">
+      <UniqueIdentifier>{41b63516-c96f-47c7-9b44-6ca6a40becb1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -206,6 +209,18 @@
     </ClInclude>
     <ClInclude Include="hooked\CLuaShared.hpp">
       <Filter>Archivos de encabezado\hooked</Filter>
+    </ClInclude>
+    <ClInclude Include="hooked\VPanelWrapper.hpp">
+      <Filter>Archivos de encabezado\hooked</Filter>
+    </ClInclude>
+    <ClInclude Include="hooked\drawutil.hpp">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="sourcesdk\vgui\ISurface.h">
+      <Filter>Archivos de encabezado\sourcesdk</Filter>
+    </ClInclude>
+    <ClInclude Include="hooked\esp.hpp">
+      <Filter>Archivos de encabezado\modules</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

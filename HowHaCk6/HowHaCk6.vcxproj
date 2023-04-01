@@ -91,7 +91,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32;NDEBUG;HOWHACK6_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;NDEBUG;HOWHACK6_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
@@ -142,6 +142,9 @@
     <ClInclude Include="framework.h" />
     <ClInclude Include="gconsole.h" />
     <ClInclude Include="hooked\CLuaShared.hpp" />
+    <ClInclude Include="hooked\drawutil.hpp" />
+    <ClInclude Include="hooked\esp.hpp" />
+    <ClInclude Include="hooked\VPanelWrapper.hpp" />
     <ClInclude Include="hooks.hpp" />
     <ClInclude Include="interfaces.hpp" />
     <ClInclude Include="pch.h" />
@@ -196,6 +199,7 @@
     <ClInclude Include="sourcesdk\tier1\checksum_crc.h" />
     <ClInclude Include="sourcesdk\tier1\checksum_md5.h" />
     <ClInclude Include="sourcesdk\vguimatsurface\CMatSystemSurface.h" />
+    <ClInclude Include="sourcesdk\vgui\ISurface.h" />
     <ClInclude Include="sourcesdk\vgui\ISurfaceV30.h" />
     <ClInclude Include="sourcesdk\vgui\VPanelWrapper.h" />
     <ClInclude Include="sourcesdk\vphysics\CPhysicsSurfaceProps.h" />

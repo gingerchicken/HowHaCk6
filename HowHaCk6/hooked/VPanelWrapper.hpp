@@ -22,6 +22,15 @@ namespace HowHack {
 		VPanel* pPanel, bool bForceRepaint, bool bForceAllow) {
 
 		g_pOPaintTraverse(_this, pPanel, bForceRepaint, bForceAllow);
+		
+		// Garry's Mod HUD only!
+		const char* szName = HowHack::g_pVPanelWrapper->GetName(pPanel);
+		if (strcmp(szName, "HudGMOD")) return;
+
+		HowHack::SimpleDrawText("Legacy is a good developer.", 1, 5, 5);
+
+		// TODO add a menu and toggle this
+		HowHack::CheatESP::DrawESP();
 	}
 }
 
