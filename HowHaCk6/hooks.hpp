@@ -17,15 +17,6 @@ namespace HowHack {
 		g_pOCreateLuaInterface = (CreateLuaInterfaceFn)g_pCLuaSharedHook->hookFunction(4, hkCreateLuaInterfaceFn);
 	}
 
-	void LogHook(DWORD dwHook, const char* sHookName) {
-		if (dwHook) {
-			HowHack::Log("[+] %s: 0x%X\n", sHookName, dwHook);
-		}
-		else {
-			HowHack::Log("[-] %s: 0x%X\n", sHookName, dwHook);
-		}
-	}
-
 	void LogHooks() {
 		LogHook((DWORD)g_pOCreateLuaInterface, "CLuaShared::CreateLuaInterface");
 	}

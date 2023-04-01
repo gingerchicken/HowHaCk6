@@ -8,6 +8,7 @@
 namespace HowHack {
 	void SetupConsole();
 	void Log(const char* format, ...);
+	void LogHook(DWORD dwHook, const char* sHookName);
 }
 
 #endif

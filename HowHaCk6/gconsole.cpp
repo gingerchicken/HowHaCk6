@@ -16,3 +16,12 @@ void HowHack::SetupConsole() {
 
 	Log("A wild HowHaCk v6 has appeared!\n\n");
 }
+
+void HowHack::LogHook(DWORD dwHook, const char* sHookName) {
+	if (dwHook) {
+		HowHack::Log("[+] %s: 0x%X\n", sHookName, dwHook);
+	}
+	else {
+		HowHack::Log("[-] %s: 0x%X\n", sHookName, dwHook);
+	}
+}
