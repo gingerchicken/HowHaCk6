@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Archivos de encabezado\sourcesdk">
+      <UniqueIdentifier>{84bc67e3-04ca-4d0b-8cdb-a3912def2f0b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -21,12 +24,174 @@
     <ClInclude Include="pch.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
+    <ClInclude Include="sourcesdk\client\CClientEntityList.h">
+      <Filter>Archivos de encabezado\sourcesdk</Filter>
+    </ClInclude>
+    <ClInclude Include="sourcesdk\client\CCollisionProperty.h">
+      <Filter>Archivos de encabezado\sourcesdk</Filter>
+    </ClInclude>
+    <ClInclude Include="sourcesdk\client\CHLClient.h">
+      <Filter>Archivos de encabezado\sourcesdk</Filter>
+    </ClInclude>
+    <ClInclude Include="sourcesdk\client\CInput.h">
+      <Filter>Archivos de encabezado\sourcesdk</Filter>
+    </ClInclude>
+    <ClInclude Include="sourcesdk\client\CInputSystem.h">
+      <Filter>Archivos de encabezado\sourcesdk</Filter>
+    </ClInclude>
+    <ClInclude Include="sourcesdk\client\ClientClass.h">
+      <Filter>Archivos de encabezado\sourcesdk</Filter>
+    </ClInclude>
+    <ClInclude Include="sourcesdk\client\ClientModeShared.h">
+      <Filter>Archivos de encabezado\sourcesdk</Filter>
+    </ClInclude>
+    <ClInclude Include="sourcesdk\client\ConCommand.h">
+      <Filter>Archivos de encabezado\sourcesdk</Filter>
+    </ClInclude>
+    <ClInclude Include="sourcesdk\client\ConVar.h">
+      <Filter>Archivos de encabezado\sourcesdk</Filter>
+    </ClInclude>
+    <ClInclude Include="sourcesdk\client\CUniformRandomStream.h">
+      <Filter>Archivos de encabezado\sourcesdk</Filter>
+    </ClInclude>
+    <ClInclude Include="sourcesdk\client\CViewRender.h">
+      <Filter>Archivos de encabezado\sourcesdk</Filter>
+    </ClInclude>
+    <ClInclude Include="sourcesdk\client\CViewSetup.h">
+      <Filter>Archivos de encabezado\sourcesdk</Filter>
+    </ClInclude>
+    <ClInclude Include="sourcesdk\client\C_BaseCombatCharacter.h">
+      <Filter>Archivos de encabezado\sourcesdk</Filter>
+    </ClInclude>
+    <ClInclude Include="sourcesdk\client\c_basecombatweapon.h">
+      <Filter>Archivos de encabezado\sourcesdk</Filter>
+    </ClInclude>
+    <ClInclude Include="sourcesdk\client\C_BasePlayer.h">
+      <Filter>Archivos de encabezado\sourcesdk</Filter>
+    </ClInclude>
+    <ClInclude Include="sourcesdk\client\IGameMovement.h">
+      <Filter>Archivos de encabezado\sourcesdk</Filter>
+    </ClInclude>
+    <ClInclude Include="sourcesdk\client\IPrediction.h">
+      <Filter>Archivos de encabezado\sourcesdk</Filter>
+    </ClInclude>
+    <ClInclude Include="sourcesdk\client\usercmd.h">
+      <Filter>Archivos de encabezado\sourcesdk</Filter>
+    </ClInclude>
+    <ClInclude Include="sourcesdk\engine\CEngineClient.h">
+      <Filter>Archivos de encabezado\sourcesdk</Filter>
+    </ClInclude>
+    <ClInclude Include="sourcesdk\engine\CGameEventManager.h">
+      <Filter>Archivos de encabezado\sourcesdk</Filter>
+    </ClInclude>
+    <ClInclude Include="sourcesdk\engine\CIVDebugOverlay.h">
+      <Filter>Archivos de encabezado\sourcesdk</Filter>
+    </ClInclude>
+    <ClInclude Include="sourcesdk\engine\CMaterialSystem.h">
+      <Filter>Archivos de encabezado\sourcesdk</Filter>
+    </ClInclude>
+    <ClInclude Include="sourcesdk\engine\CModelInfo.h">
+      <Filter>Archivos de encabezado\sourcesdk</Filter>
+    </ClInclude>
+    <ClInclude Include="sourcesdk\engine\CModelRender.h">
+      <Filter>Archivos de encabezado\sourcesdk</Filter>
+    </ClInclude>
+    <ClInclude Include="sourcesdk\engine\CNetChan.h">
+      <Filter>Archivos de encabezado\sourcesdk</Filter>
+    </ClInclude>
+    <ClInclude Include="sourcesdk\engine\CVRenderView.h">
+      <Filter>Archivos de encabezado\sourcesdk</Filter>
+    </ClInclude>
+    <ClInclude Include="sourcesdk\engine\gametrace.h">
+      <Filter>Archivos de encabezado\sourcesdk</Filter>
+    </ClInclude>
+    <ClInclude Include="sourcesdk\engine\iclientrenderable.h">
+      <Filter>Archivos de encabezado\sourcesdk</Filter>
+    </ClInclude>
+    <ClInclude Include="sourcesdk\engine\IEngineTrace.h">
+      <Filter>Archivos de encabezado\sourcesdk</Filter>
+    </ClInclude>
+    <ClInclude Include="sourcesdk\engine\imaterial.h">
+      <Filter>Archivos de encabezado\sourcesdk</Filter>
+    </ClInclude>
+    <ClInclude Include="sourcesdk\engine\inetmessage.h">
+      <Filter>Archivos de encabezado\sourcesdk</Filter>
+    </ClInclude>
+    <ClInclude Include="sourcesdk\engine\IStudioRender.h">
+      <Filter>Archivos de encabezado\sourcesdk</Filter>
+    </ClInclude>
+    <ClInclude Include="sourcesdk\engine\takedamageinfo.h">
+      <Filter>Archivos de encabezado\sourcesdk</Filter>
+    </ClInclude>
+    <ClInclude Include="sourcesdk\engine\trace.h">
+      <Filter>Archivos de encabezado\sourcesdk</Filter>
+    </ClInclude>
+    <ClInclude Include="sourcesdk\engine\vmatrix.h">
+      <Filter>Archivos de encabezado\sourcesdk</Filter>
+    </ClInclude>
+    <ClInclude Include="sourcesdk\luashared\CLuaConVars.h">
+      <Filter>Archivos de encabezado\sourcesdk</Filter>
+    </ClInclude>
+    <ClInclude Include="sourcesdk\luashared\CLuaInterface.h">
+      <Filter>Archivos de encabezado\sourcesdk</Filter>
+    </ClInclude>
+    <ClInclude Include="sourcesdk\luashared\CLuaShared.h">
+      <Filter>Archivos de encabezado\sourcesdk</Filter>
+    </ClInclude>
+    <ClInclude Include="sourcesdk\mathlib\mathlib.h">
+      <Filter>Archivos de encabezado\sourcesdk</Filter>
+    </ClInclude>
+    <ClInclude Include="sourcesdk\mathlib\math_pfns.h">
+      <Filter>Archivos de encabezado\sourcesdk</Filter>
+    </ClInclude>
+    <ClInclude Include="sourcesdk\sdk.h">
+      <Filter>Archivos de encabezado\sourcesdk</Filter>
+    </ClInclude>
+    <ClInclude Include="sourcesdk\tier0\basetypes.h">
+      <Filter>Archivos de encabezado\sourcesdk</Filter>
+    </ClInclude>
+    <ClInclude Include="sourcesdk\tier0\Color.h">
+      <Filter>Archivos de encabezado\sourcesdk</Filter>
+    </ClInclude>
+    <ClInclude Include="sourcesdk\tier0\platform.h">
+      <Filter>Archivos de encabezado\sourcesdk</Filter>
+    </ClInclude>
+    <ClInclude Include="sourcesdk\tier0\shareddefs.h">
+      <Filter>Archivos de encabezado\sourcesdk</Filter>
+    </ClInclude>
+    <ClInclude Include="sourcesdk\tier0\soundinfo.h">
+      <Filter>Archivos de encabezado\sourcesdk</Filter>
+    </ClInclude>
+    <ClInclude Include="sourcesdk\tier0\Vector.h">
+      <Filter>Archivos de encabezado\sourcesdk</Filter>
+    </ClInclude>
+    <ClInclude Include="sourcesdk\tier1\bitbuf.h">
+      <Filter>Archivos de encabezado\sourcesdk</Filter>
+    </ClInclude>
+    <ClInclude Include="sourcesdk\tier1\checksum_crc.h">
+      <Filter>Archivos de encabezado\sourcesdk</Filter>
+    </ClInclude>
+    <ClInclude Include="sourcesdk\tier1\checksum_md5.h">
+      <Filter>Archivos de encabezado\sourcesdk</Filter>
+    </ClInclude>
+    <ClInclude Include="sourcesdk\vgui\ISurfaceV30.h">
+      <Filter>Archivos de encabezado\sourcesdk</Filter>
+    </ClInclude>
+    <ClInclude Include="sourcesdk\vgui\VPanelWrapper.h">
+      <Filter>Archivos de encabezado\sourcesdk</Filter>
+    </ClInclude>
+    <ClInclude Include="sourcesdk\vguimatsurface\CMatSystemSurface.h">
+      <Filter>Archivos de encabezado\sourcesdk</Filter>
+    </ClInclude>
+    <ClInclude Include="sourcesdk\vphysics\CPhysicsSurfaceProps.h">
+      <Filter>Archivos de encabezado\sourcesdk</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="dllmain.cpp">
+    <ClCompile Include="pch.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="pch.cpp">
+    <ClCompile Include="dllmain.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>

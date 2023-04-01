@@ -141,15 +141,64 @@
   <ItemGroup>
     <ClInclude Include="framework.h" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="sourcesdk\client\CClientEntityList.h" />
+    <ClInclude Include="sourcesdk\client\CCollisionProperty.h" />
+    <ClInclude Include="sourcesdk\client\CHLClient.h" />
+    <ClInclude Include="sourcesdk\client\CInput.h" />
+    <ClInclude Include="sourcesdk\client\CInputSystem.h" />
+    <ClInclude Include="sourcesdk\client\ClientClass.h" />
+    <ClInclude Include="sourcesdk\client\ClientModeShared.h" />
+    <ClInclude Include="sourcesdk\client\ConCommand.h" />
+    <ClInclude Include="sourcesdk\client\ConVar.h" />
+    <ClInclude Include="sourcesdk\client\CUniformRandomStream.h" />
+    <ClInclude Include="sourcesdk\client\CViewRender.h" />
+    <ClInclude Include="sourcesdk\client\CViewSetup.h" />
+    <ClInclude Include="sourcesdk\client\C_BaseCombatCharacter.h" />
+    <ClInclude Include="sourcesdk\client\c_basecombatweapon.h" />
+    <ClInclude Include="sourcesdk\client\C_BasePlayer.h" />
+    <ClInclude Include="sourcesdk\client\IGameMovement.h" />
+    <ClInclude Include="sourcesdk\client\IPrediction.h" />
+    <ClInclude Include="sourcesdk\client\usercmd.h" />
+    <ClInclude Include="sourcesdk\engine\CEngineClient.h" />
+    <ClInclude Include="sourcesdk\engine\CGameEventManager.h" />
+    <ClInclude Include="sourcesdk\engine\CIVDebugOverlay.h" />
+    <ClInclude Include="sourcesdk\engine\CMaterialSystem.h" />
+    <ClInclude Include="sourcesdk\engine\CModelInfo.h" />
+    <ClInclude Include="sourcesdk\engine\CModelRender.h" />
+    <ClInclude Include="sourcesdk\engine\CNetChan.h" />
+    <ClInclude Include="sourcesdk\engine\CVRenderView.h" />
+    <ClInclude Include="sourcesdk\engine\gametrace.h" />
+    <ClInclude Include="sourcesdk\engine\iclientrenderable.h" />
+    <ClInclude Include="sourcesdk\engine\IEngineTrace.h" />
+    <ClInclude Include="sourcesdk\engine\imaterial.h" />
+    <ClInclude Include="sourcesdk\engine\inetmessage.h" />
+    <ClInclude Include="sourcesdk\engine\IStudioRender.h" />
+    <ClInclude Include="sourcesdk\engine\takedamageinfo.h" />
+    <ClInclude Include="sourcesdk\engine\trace.h" />
+    <ClInclude Include="sourcesdk\engine\vmatrix.h" />
+    <ClInclude Include="sourcesdk\luashared\CLuaConVars.h" />
+    <ClInclude Include="sourcesdk\luashared\CLuaInterface.h" />
+    <ClInclude Include="sourcesdk\luashared\CLuaShared.h" />
+    <ClInclude Include="sourcesdk\mathlib\mathlib.h" />
+    <ClInclude Include="sourcesdk\mathlib\math_pfns.h" />
+    <ClInclude Include="sourcesdk\sdk.h" />
+    <ClInclude Include="sourcesdk\tier0\basetypes.h" />
+    <ClInclude Include="sourcesdk\tier0\Color.h" />
+    <ClInclude Include="sourcesdk\tier0\platform.h" />
+    <ClInclude Include="sourcesdk\tier0\shareddefs.h" />
+    <ClInclude Include="sourcesdk\tier0\soundinfo.h" />
+    <ClInclude Include="sourcesdk\tier0\Vector.h" />
+    <ClInclude Include="sourcesdk\tier1\bitbuf.h" />
+    <ClInclude Include="sourcesdk\tier1\checksum_crc.h" />
+    <ClInclude Include="sourcesdk\tier1\checksum_md5.h" />
+    <ClInclude Include="sourcesdk\vguimatsurface\CMatSystemSurface.h" />
+    <ClInclude Include="sourcesdk\vgui\ISurfaceV30.h" />
+    <ClInclude Include="sourcesdk\vgui\VPanelWrapper.h" />
+    <ClInclude Include="sourcesdk\vphysics\CPhysicsSurfaceProps.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp" />
-    <ClCompile Include="pch.cpp">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
-    </ClCompile>
+    <ClCompile Include="pch.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
