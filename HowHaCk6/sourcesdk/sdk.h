@@ -29,5 +29,6 @@
 #include "vguimatsurface/CMatSystemSurface.h"
 #include "client/IPrediction.h"
 #include "client/IGameMovement.h"
+#include "vgui/ISurface.h"
 
 #endif
