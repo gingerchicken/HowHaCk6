@@ -186,6 +186,9 @@
     <ClInclude Include="sourcesdk\vphysics\CPhysicsSurfaceProps.h">
       <Filter>Archivos de encabezado\sourcesdk</Filter>
     </ClInclude>
+    <ClInclude Include="gconsole.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
