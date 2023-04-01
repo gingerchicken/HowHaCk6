@@ -3,16 +3,13 @@
 
 #include <Windows.h>
 
-typedef void* (*CreateInterfaceFn)(const char* sName, int* iReturnCode);
+#include "sourcesdk/sdk.h"
 
-extern class CHLClient;
-extern class IClientEntityList;
-extern class CEngineClient;
-extern class CLuaShared;
+typedef void* (*CreateInterfaceFn)(const char* sName, int* iReturnCode);
 
 namespace HowHack {
 	CHLClient* g_pCHLClient;
-	IClientEntityList* g_pEntityList;
+	CClientEntityList* g_pEntityList;
 	CEngineClient* g_pEngineClient;
 	CLuaShared* g_pLuaShared;
 
@@ -20,6 +17,7 @@ namespace HowHack {
 	void SetupInterfaces();
 	void LogInterfaces();
 	void LogInterface(DWORD dwInterface, const char* sInterfaceName);
+	C_BasePlayer* GetLocalPlayer();
 }
 
 // AH HHAHAH HMEN S GHEHGEH
@@ -48,8 +46,12 @@ void HowHack::LogInterfaces() {
 void HowHack::SetupInterfaces() {
 	g_pEngineClient = (CEngineClient*)GetInterface("engine.dll", "VEngineClient015");
 	g_pCHLClient = (CHLClient*)GetInterface("client.dll", "VClient017");
-	g_pEntityList = (IClientEntityList*)GetInterface("client.dll", "VClientEntityList003");
+	g_pEntityList = (CClientEntityList*)GetInterface("client.dll", "VClientEntityList003");
 	g_pLuaShared = (CLuaShared*)GetInterface("lua_shared.dll", "LUASHARED003");
+}
+
+C_BasePlayer* HowHack::GetLocalPlayer() {
+	return (C_BasePlayer*)g_pEntityList->GetClientEntity(g_pEngineClient->GetLocalPlayer());
 }
 
 #endif

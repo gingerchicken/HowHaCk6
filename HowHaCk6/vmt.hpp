@@ -3,6 +3,7 @@
 #define VMT_H
 
 #include <Windows.h>
+#include <malloc.h>
 
 class VMTHook
 {

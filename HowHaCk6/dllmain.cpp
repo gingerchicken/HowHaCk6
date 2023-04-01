@@ -2,7 +2,9 @@
 #include "pch.h"
 
 #include "gconsole.h"
+
 #include "interfaces.hpp"
+#include "hooks.hpp"
 
 #include "sourcesdk/sdk.h"
 
@@ -13,6 +15,10 @@ void SimpleInitalise() {
     HowHack::Log("Setting up interfaces...\n");
     HowHack::SetupInterfaces();
     HowHack::LogInterfaces();
+
+    HowHack::Log("Hooking interfaces...\n");
+    HowHack::SetupHooks();
+    HowHack::LogHooks();
 }
 
 BOOL APIENTRY DllMain( HMODULE hModule,

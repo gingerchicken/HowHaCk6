@@ -16,6 +16,12 @@
     <Filter Include="Archivos de encabezado\sourcesdk">
       <UniqueIdentifier>{84bc67e3-04ca-4d0b-8cdb-a3912def2f0b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Archivos de encabezado\thirdparty">
+      <UniqueIdentifier>{3d2de117-4ad4-4c80-875a-e05b779afb25}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\hooked">
+      <UniqueIdentifier>{8615eda2-d149-45a7-8743-3b740c7f14ac}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -191,6 +197,12 @@
     </ClInclude>
     <ClInclude Include="interfaces.hpp">
       <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="hooks.hpp">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="vmt.hpp">
+      <Filter>Archivos de encabezado\thirdparty</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
