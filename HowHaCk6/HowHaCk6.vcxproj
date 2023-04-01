@@ -141,6 +141,7 @@
   <ItemGroup>
     <ClInclude Include="framework.h" />
     <ClInclude Include="gconsole.h" />
+    <ClInclude Include="hooked\CLuaShared.hpp" />
     <ClInclude Include="hooks.hpp" />
     <ClInclude Include="interfaces.hpp" />
     <ClInclude Include="pch.h" />

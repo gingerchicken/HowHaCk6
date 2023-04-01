@@ -204,6 +204,9 @@
     <ClInclude Include="vmt.hpp">
       <Filter>Archivos de encabezado\thirdparty</Filter>
     </ClInclude>
+    <ClInclude Include="hooked\CLuaShared.hpp">
+      <Filter>Archivos de encabezado\hooked</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">

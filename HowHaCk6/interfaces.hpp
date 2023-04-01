@@ -12,7 +12,9 @@ namespace HowHack {
 	CClientEntityList* g_pEntityList;
 	CEngineClient* g_pEngineClient;
 	CLuaShared* g_pLuaShared;
-
+	CLuaInterface* g_pLuaInterface;
+	
+	void UpdateLuaInterface(CLuaInterface* pLuaInterface);
 	void* GetInterface(const char* sModule, const char* sInterface);
 	void SetupInterfaces();
 	void LogInterfaces();
@@ -52,6 +54,12 @@ void HowHack::SetupInterfaces() {
 
 C_BasePlayer* HowHack::GetLocalPlayer() {
 	return (C_BasePlayer*)g_pEntityList->GetClientEntity(g_pEngineClient->GetLocalPlayer());
+}
+
+void HowHack::UpdateLuaInterface(CLuaInterface* pLuaInterface) {
+	Log("[+] Updating Lua Interface: 0x%X -> 0x%X\n", g_pLuaInterface, pLuaInterface);
+	
+	g_pLuaInterface = pLuaInterface;
 }
 
 #endif
