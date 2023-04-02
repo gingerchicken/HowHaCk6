@@ -25,7 +25,13 @@ namespace HowHack {
 		ISurface* surface = HowHack::g_pISurface;
 		
 		surface->DrawSetColor(oColor);
-		surface->DrawLine(iFirstX, iFirstY, iSecondX, iSecondY);
+		// surface->DrawLine(iFirstX, iFirstY, iSecondX, iSecondY);
+		// The draw line function seems to not work.
+
+		int aX[] = { iFirstX, iSecondX };
+		int aY[] = { iFirstY, iSecondY };
+		surface->DrawPolyLine(aX, aY, 2);
+
 		surface->DrawSetColor(255, 255, 255, 255);
 	}
 	void DrawLine(Vector oFirstPos, Vector oSecondPos, Color oColor = Color(255, 255, 255, 255)) {
