@@ -27,7 +27,7 @@ namespace HowHack {
 		const char* szName = HowHack::g_pVPanelWrapper->GetName(pPanel);
 		if (strcmp(szName, "HudGMOD")) return;
 
-		HowHack::SimpleDrawText("Legacy is a good developer.", 1, 5, 5);
+		HowHack::DrawString("Legacy is a good developer.", 5, 5, 5);
 
 		// TODO add a menu and toggle this
 		HowHack::CheatESP::DrawESP();
