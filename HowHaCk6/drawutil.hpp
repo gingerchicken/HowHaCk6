@@ -1,8 +1,8 @@
 #ifndef DRAWUTIL_H
 #define DRAWUTIL_H
 
-#include "../interfaces.hpp"
-#include "../sourcesdk/tier0/Color.h"
+#include "interfaces.hpp"
+#include "sourcesdk/tier0/Color.h"
 
 namespace HowHack {
 	void SimpleDrawText(const char* szText = "Sample Text", int font = 1, int x = 0, int y = 0, Color color = Color(255, 255, 255, 255)) {
