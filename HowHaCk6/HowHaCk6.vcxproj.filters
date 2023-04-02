@@ -213,14 +213,14 @@
     <ClInclude Include="hooked\VPanelWrapper.hpp">
       <Filter>Archivos de encabezado\hooked</Filter>
     </ClInclude>
-    <ClInclude Include="hooked\drawutil.hpp">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
     <ClInclude Include="sourcesdk\vgui\ISurface.h">
       <Filter>Archivos de encabezado\sourcesdk</Filter>
     </ClInclude>
-    <ClInclude Include="hooked\esp.hpp">
+    <ClInclude Include="modules\esp.hpp">
       <Filter>Archivos de encabezado\modules</Filter>
+    </ClInclude>
+    <ClInclude Include="drawutil.hpp">
+      <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

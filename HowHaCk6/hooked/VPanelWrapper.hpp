@@ -8,7 +8,7 @@
 #include "../interfaces.hpp"
 #include "drawutil.hpp"
 
-#include "esp.hpp"
+#include "../modules/esp.hpp"
 
 typedef void(__thiscall* PaintTraverseFn)(VPanelWrapper*, VPanel* pPanel, bool bForceRepaint, bool bForceAllow);
 

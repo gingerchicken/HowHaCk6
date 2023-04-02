@@ -139,14 +139,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="drawutil.hpp" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="gconsole.h" />
     <ClInclude Include="hooked\CLuaShared.hpp" />
-    <ClInclude Include="hooked\drawutil.hpp" />
-    <ClInclude Include="hooked\esp.hpp" />
     <ClInclude Include="hooked\VPanelWrapper.hpp" />
     <ClInclude Include="hooks.hpp" />
     <ClInclude Include="interfaces.hpp" />
+    <ClInclude Include="modules\esp.hpp" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="sourcesdk\client\CClientEntityList.h" />
     <ClInclude Include="sourcesdk\client\CCollisionProperty.h" />
