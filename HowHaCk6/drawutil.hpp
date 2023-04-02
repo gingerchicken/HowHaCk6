@@ -5,16 +5,16 @@
 #include "sourcesdk/tier0/Color.h"
 
 namespace HowHack {
-	void SimpleDrawText(const char* szText = "Sample Text", int font = 1, int x = 0, int y = 0, Color color = Color(255, 255, 255, 255)) {
+	void SimpleDrawText(const char* szText = "Sample Text", int iFontSize = 1, int iX = 0, int iY = 0, Color oColor = Color(255, 255, 255, 255)) {
 		const size_t cSize = strlen(szText) + 1;
 		wchar_t* wc = new wchar_t[cSize];
 		mbstowcs(wc, szText, cSize);
 
 		ISurface* surface = HowHack::g_pISurface;
 
-		surface->DrawSetTextFont(font);
-		surface->DrawSetTextColor(color);
-		surface->DrawSetTextPos(x, y);
+		surface->DrawSetTextFont(iFontSize);
+		surface->DrawSetTextColor(oColor);
+		surface->DrawSetTextPos(iX, iY);
 		surface->DrawPrintText(wc, cSize - 1);
 		surface->DrawSetTextColor(255, 255, 255, 255);
 		
