@@ -12,7 +12,7 @@ namespace HowHack {
 	// TODO make this a singleton
 	class CheatESP {
 	public:
-		static void DrawBoundingBox(C_BasePlayer* pPlayer, bool bBox = true, bool bFill = true) {
+		static void DrawBoundingBox(C_BasePlayer* pPlayer, player_info_t& oPlayerInfo, bool bBox = true, bool bFill = true, bool bInfo = true) {
 			CCollisionProperty* pCollision = pPlayer->GetCollideable();
 
 			// Get the absolute origin
@@ -59,6 +59,27 @@ namespace HowHack {
 				DrawLine(vTopLeft.x, vBottomRight.y, vBottomRight.x, vBottomRight.y, oBoxColor);
 			}
 
+			if (bInfo) {
+				std::string szName = oPlayerInfo.name;
+				int iHealth = pPlayer->GetHealth();
+				C_BaseCombatWeapon* pActiveWeapon = pPlayer->GetActiveWeapon();
+				std::string szWeaponName = pActiveWeapon == nullptr ? "N/A" : pActiveWeapon->GetName();
+
+				int iTextY = vBottomRight.y;
+				int iTextX = vTopLeft.x;
+				
+				// Draw the name
+				std::string szInfoRows[] = {
+					szName, "HP: " + std::to_string(iHealth), szWeaponName
+				};
+
+				const int iFont = 16;
+				for (std::string szInfo : szInfoRows) {
+					DrawString(szInfo.c_str(), iFont, iTextX, iTextY);
+					iTextY += 20;
+				}
+			}
+
 #ifdef _DEBUG
 			DrawString("TopL", 16, vTopLeft.x, vTopLeft.y);
 			DrawString("TopR", 16, vBottomRight.x, vTopLeft.y);
@@ -81,14 +102,17 @@ namespace HowHack {
 				if (!pEntity) continue;
 
 				// Get the player's name (and check if it is a player)
-				player_info_t pInfo;
-				if (!g_pEngineClient->GetPlayerInfo(i, &pInfo)) continue;
+				player_info_t oInfo;
+				if (!g_pEngineClient->GetPlayerInfo(i, &oInfo)) continue;
 
 				// Get the player
 				C_BasePlayer* pPlayer = (C_BasePlayer*)pEntity;
 
+				// Check if the player is us
+				if (pPlayer == pLocalPlayer) continue;
+
 				// Draw the bounding box
-				DrawBoundingBox(pPlayer);
+				DrawBoundingBox(pPlayer, oInfo);
 			}	
 		}
 	};
