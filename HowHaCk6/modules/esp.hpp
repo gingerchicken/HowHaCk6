@@ -6,8 +6,32 @@
 #include "../sourcesdk/sdk.h"
 
 namespace HowHack {
+
+	// TODO make this a singleton
 	class CheatESP {
 	public:
+		static void DrawBoundingBox(C_BasePlayer* pPlayer) {
+			CCollisionProperty* pCollision = pPlayer->GetCollideable();
+
+			// Get the absolute origin
+			Vector vOrigin = pPlayer->GetAbsOrigin();
+
+			// TODO clean this up to make it more readable
+			Vector vCollMid = Vector(pPlayer->GetCollideable()->OBBMins().x + pPlayer->GetCollideable()->OBBMaxs().x, pPlayer->GetCollideable()->OBBMins().y + pPlayer->GetCollideable()->OBBMaxs().y, pPlayer->GetCollideable()->OBBMins().z);
+
+			// Get the world bounds
+			Vector vMins;
+			Vector vMaxs;
+			pCollision->WorldSpaceTriggerBounds(&vMins, &vMaxs);
+
+			// Convert them to screen positions
+			Vector vTop, vBottom;
+			if (!HowHack::WorldToScreen(vCollMid + vMaxs, vTop) || !HowHack::WorldToScreen(vCollMid + vMins, vBottom)) return;
+
+			HowHack::DrawString("Top", 16, vTop.x, vTop.y);
+			HowHack::DrawString("Bottom", 16, vBottom.x, vBottom.y);
+		}
+
 		static void DrawESP() {
 			// Ensure we are in game
 			if (!g_pEngineClient->IsInGame()) return;
@@ -28,17 +52,8 @@ namespace HowHack {
 				// Get the player
 				C_BasePlayer* pPlayer = (C_BasePlayer*)pEntity;
 
-				// Get the player's health
-				int iHealth = pPlayer->GetHealth();
-				// Get the player's position
-				Vector vOrigin = pPlayer->EyePosition();
-				Vector vScreen; // TODO change this to Vector2D once you have implemented the functions
-				if (!HowHack::WorldToScreen(vOrigin, vScreen)) continue;
-				
-				// Draw the player's name
-				HowHack::DrawString(pInfo.name, 16, vScreen.x, vScreen.y);
-				// Draw the player's health
-				HowHack::DrawString(std::to_string(iHealth).c_str(), 16, vScreen.x, vScreen.y + 16);
+				// Draw the bounding box
+				DrawBoundingBox(pPlayer);
 			}	
 		}
 	};
