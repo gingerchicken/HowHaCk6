@@ -5,7 +5,7 @@
 #include "sourcesdk/tier0/Color.h"
 
 namespace HowHack {
-	void SimpleDrawText(const char* szText = "Sample Text", int iFontSize = 1, int iX = 0, int iY = 0, Color oColor = Color(255, 255, 255, 255)) {
+	void DrawString(const char* szText = "Sample Text", int iFontSize = 1, int iX = 0, int iY = 0, Color oColor = Color(255, 255, 255, 255)) {
 		const size_t cSize = strlen(szText) + 1;
 		wchar_t* wc = new wchar_t[cSize];
 		mbstowcs(wc, szText, cSize);
@@ -19,6 +19,32 @@ namespace HowHack {
 		surface->DrawSetTextColor(255, 255, 255, 255);
 		
 		delete[] wc;
+	}
+
+	void DrawLine(int iFirstX = 0, int iFirstY = 0, int iSecondX = 0, int iSecondY = 0, Color oColor = Color(255, 255, 255, 255)) {
+		ISurface* surface = HowHack::g_pISurface;
+		
+		surface->DrawSetColor(oColor);
+		surface->DrawLine(iFirstX, iFirstY, iSecondX, iSecondY);
+		surface->DrawSetColor(255, 255, 255, 255);
+	}
+	void DrawLine(Vector oFirstPos, Vector oSecondPos, Color oColor = Color(255, 255, 255, 255)) {
+		DrawLine(oFirstPos.x, oFirstPos.y, oSecondPos.x, oSecondPos.y, oColor);
+	}
+	void DrawCircle(int iX, int iY, int iRadius, int iSegments, Color oColor = Color(255, 255, 255, 255)) {
+		ISurface* surface = HowHack::g_pISurface;
+
+		surface->DrawSetColor(oColor);
+		surface->DrawOutlinedCircle(iX, iY, iRadius, iSegments);
+		surface->DrawSetColor(Color(255, 255, 255, 255));
+	}
+
+	void DrawRect(int iX = 0, int iY = 0, int iWidth = 100, int iHeight = 100, Color oColor = Color(255, 255, 255, 255)) {
+		ISurface* surface = HowHack::g_pISurface;
+		
+		surface->DrawSetColor(oColor);
+		surface->DrawFilledRect(iX, iY, iX + iWidth, iY + iHeight);
+		surface->DrawSetColor(255, 255, 255, 255);
 	}
 
 	bool WorldToScreen(Vector oIn, Vector& oOut, bool bIgnoreInvisible = false) {

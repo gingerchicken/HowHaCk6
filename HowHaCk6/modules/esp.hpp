@@ -36,9 +36,9 @@ namespace HowHack {
 				if (!HowHack::WorldToScreen(vOrigin, vScreen)) continue;
 				
 				// Draw the player's name
-				HowHack::SimpleDrawText(pInfo.name, 16, vScreen.x, vScreen.y);
+				HowHack::DrawString(pInfo.name, 16, vScreen.x, vScreen.y);
 				// Draw the player's health
-				HowHack::SimpleDrawText(std::to_string(iHealth).c_str(), 16, vScreen.x, vScreen.y + 16);
+				HowHack::DrawString(std::to_string(iHealth).c_str(), 16, vScreen.x, vScreen.y + 16);
 			}	
 		}
 	};
