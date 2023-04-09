@@ -4,6 +4,8 @@
 #include <Windows.h>
 
 #include "sourcesdk/sdk.h"
+#include "offsets.h"
+#include "vmt.hpp"
 
 typedef void* (*CreateInterfaceFn)(const char* sName, int* iReturnCode);
 
@@ -15,6 +17,7 @@ namespace HowHack {
 	CLuaInterface* g_pLuaInterface;
 	VPanelWrapper* g_pVPanelWrapper;
 	ISurface* g_pISurface;
+	ClientModeShared* g_pClientMode;
 	
 	void UpdateLuaInterface(CLuaInterface* pLuaInterface);
 	void* GetInterface(const char* sModule, const char* sInterface);
@@ -48,15 +51,20 @@ void HowHack::LogInterfaces() {
 	HowHack::LogInterface((DWORD)g_pLuaInterface, "LuaInterface");
 	HowHack::LogInterface((DWORD)g_pVPanelWrapper, "VPanelWrapper");
 	HowHack::LogInterface((DWORD)g_pISurface, "ISurface");
+	HowHack::LogInterface((DWORD)g_pClientMode, "ClientModeShared");
 }
 
 void HowHack::SetupInterfaces() {
+	// Direct
 	g_pEngineClient = (CEngineClient*)GetInterface("engine.dll", "VEngineClient015");
 	g_pCHLClient = (CHLClient*)GetInterface("client.dll", "VClient017");
 	g_pEntityList = (CClientEntityList*)GetInterface("client.dll", "VClientEntityList003");
 	g_pLuaShared = (CLuaShared*)GetInterface("lua_shared.dll", "LUASHARED003");
 	g_pVPanelWrapper = (VPanelWrapper*)GetInterface("vgui2.dll", "VGUI_Panel009");
 	g_pISurface = (ISurface*)GetInterface("vguimatsurface.dll", "VGUI_Surface030"); // TODO what about steam overlay?
+	
+	// Offset'd
+	g_pClientMode = GetVMT<ClientModeShared>((DWORD)g_pCHLClient, 10, OFFSET_CLIENT_MODE);
 }
 
 C_BasePlayer* HowHack::GetLocalPlayer() {

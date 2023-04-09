@@ -188,4 +188,40 @@ void VMTHook::SetPadding(int pad)
 	padding = pad;
 }
 
+
+// This is from Gaztoof
+
+template<typename T>
+T* GetVMT(uintptr_t address, int index, uintptr_t offset) // Address must be a VTable pointer, not a VTable !
+{
+#ifdef _WIN64
+	uintptr_t step = 3;
+	uintptr_t instructionSize = 7;
+	uintptr_t instruction = ((*(uintptr_t**)(address))[index] + offset);
+
+	uintptr_t relativeAddress = *(DWORD*)(instruction + step);
+	uintptr_t realAddress = instruction + instructionSize + relativeAddress;
+	return *(T**)(realAddress);
+#else
+	uintptr_t instruction = ((*(uintptr_t**)(address))[index] + offset);
+	return *(T**)(*(uintptr_t*)(instruction));
+#endif
+}
+template<typename T>
+T* GetVMT(uintptr_t address, uintptr_t offset) // This doesn't reads from the VMT, address must be the function's base ! Not a pointer!
+{
+#ifdef _WIN64
+	uintptr_t step = 3;
+	uintptr_t instructionSize = 7;
+	uintptr_t instruction = address + offset;
+
+	uintptr_t relativeAddress = *(DWORD*)(instruction + step);
+	uintptr_t realAddress = instruction + instructionSize + relativeAddress;
+	return *(T**)(realAddress);
+#else
+	uintptr_t instruction = (address + offset);
+	return *(T**)(*(uintptr_t*)(instruction));
+#endif
+}
+
 #endif
