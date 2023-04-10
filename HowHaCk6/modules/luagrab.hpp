@@ -32,6 +32,9 @@ namespace HowHack {
 			
 			// Create a string from the char*
 			szName = std::string(szAddr);
+
+			// Remove the port
+			szName = szName.substr(0, szName.find(":"));
 			
 			// Return it
 			return szName;
