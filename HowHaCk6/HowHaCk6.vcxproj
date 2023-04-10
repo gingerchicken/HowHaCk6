@@ -148,6 +148,7 @@
     <ClInclude Include="hooks.hpp" />
     <ClInclude Include="interfaces.hpp" />
     <ClInclude Include="modules\esp.hpp" />
+    <ClInclude Include="modules\luagrab.hpp" />
     <ClInclude Include="offsets.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="sourcesdk\client\CClientEntityList.h" />

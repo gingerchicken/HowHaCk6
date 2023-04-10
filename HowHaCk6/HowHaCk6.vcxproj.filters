@@ -228,6 +228,9 @@
     <ClInclude Include="hooked\ClientModeShared.hpp">
       <Filter>Archivos de encabezado\hooked</Filter>
     </ClInclude>
+    <ClInclude Include="modules\luagrab.hpp">
+      <Filter>Archivos de encabezado\modules</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">

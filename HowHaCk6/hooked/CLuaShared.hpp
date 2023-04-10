@@ -7,6 +7,8 @@
 #include "../sourcesdk/sdk.h"
 #include "../interfaces.hpp"
 
+#include "../modules/luagrab.hpp"
+
 typedef CLuaInterface* (__thiscall* CreateLuaInterfaceFn)(CLuaShared*, LuaInterfaceType, bool);
 typedef bool(__thiscall* RunStringExFn)(CLuaInterface*, const char*, const char*, const char*, bool, bool, bool, bool);
 
@@ -40,7 +42,9 @@ namespace HowHack {
         void*,
 #endif
         const char* szFilename, const char* szPath, const char* szStringToRun, bool bRun, bool bPrintErrors, bool bDontPushErrors, bool bNoReturns) {
-        // TODO
+        
+        HowHack::CheatLuaGrab::SaveLuaFile(_this, szFilename, szPath, szStringToRun, bRun, bPrintErrors, bDontPushErrors, bNoReturns);
+
         return g_pORunStringEx(_this, szFilename, szPath, szStringToRun, bRun, bPrintErrors, bDontPushErrors, bNoReturns);
     }
 
