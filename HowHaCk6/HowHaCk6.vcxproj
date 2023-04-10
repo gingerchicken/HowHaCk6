@@ -142,6 +142,7 @@
     <ClInclude Include="drawutil.hpp" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="gconsole.h" />
+    <ClInclude Include="hooked\ClientModeShared.hpp" />
     <ClInclude Include="hooked\CLuaShared.hpp" />
     <ClInclude Include="hooked\VPanelWrapper.hpp" />
     <ClInclude Include="hooks.hpp" />

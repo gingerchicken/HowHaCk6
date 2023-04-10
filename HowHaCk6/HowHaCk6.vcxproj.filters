@@ -225,6 +225,9 @@
     <ClInclude Include="offsets.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
+    <ClInclude Include="hooked\ClientModeShared.hpp">
+      <Filter>Archivos de encabezado\hooked</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
