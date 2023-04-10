@@ -4,21 +4,72 @@
 #include "interfaces.hpp"
 #include "sourcesdk/tier0/Color.h"
 
+enum GMOD_FONT {
+	DebugFixed,
+	DebugFixedSmall,
+	DefaultFixedOutline,
+	MenuItem,
+	Default,
+	TabLarge,
+	DefaultBold,
+	DefaultUnderline,
+	DefaultSmall,
+	DefaultSmallDropShadow,
+	DefaultVerySmall,
+	DefaultLarge,
+	UiBold,
+	MenuLarge,
+	ConsoleText,
+	Marlett,
+	Trebuchet18,
+	Trebuchet19,
+	Trebuchet20,
+	Trebuchet22,
+	Trebuchet24,
+	HUDNumber,
+	HUDNumber1,
+	HUDNumber2,
+	HUDNumber3,
+	HUDNumber4,
+	HUDNumber5,
+	HudHintTextLarge,
+	HudHintTextSmall,
+	CenterPrintText,
+	HudSelectionText,
+	DefaultFixed,
+	DefaultFixedDropShadow,
+	CloseCaption_Normal,
+	CloseCaption_Bold,
+	CloseCaption_BoldItalic,
+	TitleFont,
+	TitleFont2,
+	ChatFont,
+	TargetID,
+	TargetIDSmall,
+	HL2MPTypeDeath,
+	BudgetLabel
+};
+
 namespace HowHack {
-	void DrawString(const char* szText = "Sample Text", int iFontSize = 1, int iX = 0, int iY = 0, Color oColor = Color(255, 255, 255, 255)) {
+	void DrawString(const char* szText = "Sample Text", int iFont = 1, int iX = 0, int iY = 0, Color oColor = Color(255, 255, 255, 255)) {
 		const size_t cSize = strlen(szText) + 1;
 		wchar_t* wc = new wchar_t[cSize];
 		mbstowcs(wc, szText, cSize);
 
 		ISurface* surface = HowHack::g_pISurface;
 
-		surface->DrawSetTextFont(iFontSize);
+		surface->DrawSetTextFont(iFont);
 		surface->DrawSetTextColor(oColor);
 		surface->DrawSetTextPos(iX, iY);
 		surface->DrawPrintText(wc, cSize - 1);
 		surface->DrawSetTextColor(255, 255, 255, 255);
 		
 		delete[] wc;
+	}
+
+	void DrawString(const char* szText = "Sample Text", GMOD_FONT eFont = TabLarge, int iX = 0, int iY = 0, Color oColor = Color(255, 255, 255, 255)) {
+		int iFont = (int)eFont;
+		DrawString(szText, iFont, iX, iY, oColor);
 	}
 
 	void DrawLine(int iFirstX = 0, int iFirstY = 0, int iSecondX = 0, int iSecondY = 0, Color oColor = Color(255, 255, 255, 255)) {
