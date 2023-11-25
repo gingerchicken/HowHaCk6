@@ -150,6 +150,7 @@
     <ClInclude Include="modules\esp.hpp" />
     <ClInclude Include="modules\luagrab.hpp" />
     <ClInclude Include="offsets.h" />
+    <ClInclude Include="patterns.hpp" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="sourcesdk\client\CClientEntityList.h" />
     <ClInclude Include="sourcesdk\client\CCollisionProperty.h" />

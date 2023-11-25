@@ -231,6 +231,9 @@
     <ClInclude Include="modules\luagrab.hpp">
       <Filter>Archivos de encabezado\modules</Filter>
     </ClInclude>
+    <ClInclude Include="patterns.hpp">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
