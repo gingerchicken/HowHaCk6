@@ -10,6 +10,7 @@
 #include "hooked/CLuaShared.hpp"
 #include "hooked/VPanelWrapper.hpp"
 #include "hooked/ClientModeShared.hpp"
+#include "hooked/Present.hpp"
 
 namespace HowHack {
 	VMTHook* g_pCLuaSharedHook;
@@ -25,12 +26,19 @@ namespace HowHack {
 
 		g_pClientModeHook = new VMTHook(g_pClientMode);
 		g_pOCreateMove = (CreateMoveFn)g_pClientModeHook->hookFunction(21, hkCreateMove);
+	
+		// Present
+		char* pPresent = GetRealFromRelative((char*)FindPattern(MODULE_PRESENT, PATTERN_PRESENT), 2, 6, false);
+		g_pOPresent = *(PresentFn*)(pPresent);
+		// VMT when?
+		*(PresentFn**)(pPresent) = (PresentFn*)hkPresent;
 	}
 
 	void LogHooks() {
 		LogHook((DWORD)g_pOCreateLuaInterface, "CLuaShared::CreateLuaInterface");
 		LogHook((DWORD)g_pOPaintTraverse, "VPanelWrapper::PaintTraverse");
 		LogHook((DWORD)g_pOCreateMove, "ClientModeShared::CreateMove");
+		LogHook((DWORD)g_pOPresent, "IDirect3DDevice9::Present");
 	}
 }
 

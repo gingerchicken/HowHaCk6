@@ -6,6 +6,7 @@
 #include "sourcesdk/sdk.h"
 #include "offsets.h"
 #include "vmt.hpp"
+#include "patterns.hpp"
 
 typedef void* (*CreateInterfaceFn)(const char* sName, int* iReturnCode);
 

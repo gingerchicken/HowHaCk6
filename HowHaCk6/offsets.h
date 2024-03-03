@@ -10,7 +10,7 @@
 #define CLIENT_MODE_OFFSET 0x0
 
 #define MODULE_PRESENT "gameoverlayrenderer"
-#define PATTERN_PATTERN "\xFF\x15????\x8B\xF8\xEB\x1E"
+#define PATTERN_PRESENT "\xFF\x15????\x8B\xF8\xEB\x1E"
 
 #endif
 
@@ -21,6 +21,6 @@
 #define OFFSET_CLIENT_MODE 0x5
 
 #define MODULE_PRESENT "gameoverlayrenderer"
-#define PATTERN_PATTERN "\xFF\x15????\x8B\xF0\x85\xFF"
+#define PATTERN_PRESENT "\xFF\x15????\x8B\xF0\x85\xFF"
 
 #endif

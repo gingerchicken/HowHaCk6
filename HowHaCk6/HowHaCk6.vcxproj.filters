@@ -234,6 +234,9 @@
     <ClInclude Include="patterns.hpp">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
+    <ClInclude Include="hooked\Present.hpp">
+      <Filter>Archivos de encabezado\hooked</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
