@@ -1,69 +1,86 @@
 #pragma once
 #include "../tier0/shareddefs.h"
 
+#define INVALID_USER_ID	-1
+#define JOYSTICK_AXIS_INTERNAL( _joystick, _axis ) ( JOYSTICK_FIRST_AXIS + ((_joystick) * MAX_JOYSTICK_AXES) + (_axis) )
+#define JOYSTICK_AXIS( _joystick, _axis ) ( (AnalogCode_t)JOYSTICK_AXIS_INTERNAL( _joystick, _axis ) )
+
+enum
+{
+	MAX_JOYSTICKS = 1,
+	MOUSE_BUTTON_COUNT = 5,
+	MAX_NOVINT_DEVICES = 2,
+};
+enum JoystickAxis_t
+{
+	JOY_AXIS_X = 0,
+	JOY_AXIS_Y,
+	JOY_AXIS_Z,
+	JOY_AXIS_U,
+	JOY_AXIS_R,
+	JOY_AXIS_V,
+	MAX_JOYSTICK_AXES,
+};
+enum AnalogCode_t
+{
+	ANALOG_CODE_INVALID = -1,
+	MOUSE_X = 0,
+	MOUSE_Y,
+	MOUSE_XY,		// Invoked when either x or y changes
+	MOUSE_WHEEL,
+
+	JOYSTICK_FIRST_AXIS,
+	JOYSTICK_LAST_AXIS = JOYSTICK_AXIS_INTERNAL(MAX_JOYSTICKS - 1, MAX_JOYSTICK_AXES - 1),
+
+	ANALOG_CODE_LAST,
+};
+
 // Auto reconstructed from vtable block @ 0x0000A118
 // from "inputsystem.dylib", by ida_vtables.idc
 // Modified VTable dumper script obviously by t.me/Gaztoof.
 class CInputSystem
 {
 public:
-	/*0*/	virtual void Connect(void* (*)(char const*, int*)) = 0;
-	/*1*/	virtual void Disconnect(void) = 0;
-	/*2*/	virtual void QueryInterface(char const*) = 0;
-	/*3*/	virtual void Init(void) = 0;
-	/*4*/	virtual void Shutdown(void) = 0;
-						
-	/*5*/	virtual void Undocumented1(void) = 0; // All of those 4 functions are unimplemented. Probably disabled by the devs or the compiler.
-	/*5*/	virtual void Undocumented2(void) = 0;
-	/*5*/	virtual void Undocumented3(void) = 0;
-	/*5*/	virtual void Undocumented4(void) = 0;
-						
-	/*5*/	virtual void AttachToWindow(void*) = 0;
-	/*6*/	virtual void DetachFromWindow(void) = 0;
-	/*7*/	virtual void EnableInput(bool) = 0;
-	/*8*/	virtual void EnableMessagePump(bool) = 0;
-	/*9*/	virtual void PollInputState(void) = 0;
-	/*10*/	virtual int GetPollTick(void)const = 0;
-	/*11*/	virtual bool IsButtonDown(ButtonCode_t)const = 0;
-	/*12*/	virtual int GetButtonPressedTick(ButtonCode_t)const = 0;
-	/*13*/	virtual int GetButtonReleasedTick(ButtonCode_t)const = 0;
-	/*14*/	virtual int GetAnalogValue(void*)const = 0;
-	/*15*/	virtual int GetAnalogDelta(void*)const = 0;
-	/*16*/	virtual int GetEventCount(void)const = 0;
-	/*17*/	virtual int GetEventData(void)const = 0;
-	/*18*/	virtual void PostUserEvent(void const*) = 0;
-	/*19*/	virtual int GetJoystickCount(void)const = 0;
-	/*20*/	virtual void EnableJoystickInput(int, bool) = 0;
-	/*21*/	virtual void EnableJoystickDiagonalPOV(int, bool) = 0;
-	/*22*/	virtual void SampleDevices(void) = 0;
-	/*23*/	virtual void SetRumble(float, float, int) = 0;
-	/*24*/	virtual void StopRumble(void) = 0;
-
-	/*25*/	virtual void Undocumented5(void) = 0;
-	/*26*/	virtual void Undocumented6(void) = 0;
-	/*27*/	virtual void Undocumented7(void) = 0;
-	/*28*/	virtual void Undocumented8(void) = 0;
-	/*29*/	virtual void Undocumented9(void) = 0;
-	/*30*/	virtual void Undocumented10(void) = 0;
-	/*31*/	virtual void Undocumented11(void) = 0;
-	/*32*/	virtual void Undocumented12(void) = 0;
-	/*33*/	virtual void Undocumented13(void) = 0;
-	/*34*/	virtual void Undocumented14(void) = 0;
-	/*35*/	virtual void Undocumented15(void) = 0;
-
-	/*36*/	virtual const char* ButtonCodeToString(ButtonCode_t code) const = 0;
-	/*37*/	virtual const char* AnalogCodeToString(void* code) const = 0; // AnalogCode_t
-	/*38*/	virtual ButtonCode_t StringToButtonCode(const char* pString) const = 0;
-	/*39*/	virtual void* StringToAnalogCode(const char* pString) const = 0;
-
-	/*40*/	virtual void SleepUntilInput(int nMaxSleepTimeMS = -1) = 0;
-
-	/*41*/	virtual ButtonCode_t VirtualKeyToButtonCode(int nVirtualKey) const = 0;
-	/*42*/	virtual int ButtonCodeToVirtualKey(ButtonCode_t code) const = 0;
-
-	/*
-	* Every following function was a real pain to reverse. For some reasons, the MacOS inputsystem is totally different from the Windows one.
-	* There's a lot of functions I named "undocumented" as I was lazy to find out what they were doing.
-	*/
+	virtual void not_important_00() = 0;
+	virtual void not_important_01() = 0;
+	virtual void not_important_02() = 0;
+	virtual void not_important_03() = 0;
+	virtual void not_important_04() = 0;
+	virtual void AttachToWindow(void* hWnd) = 0;
+	virtual void DetachFromWindow() = 0;
+	virtual void EnableInput(bool bEnable) = 0;
+	virtual void EnableMessagePump(bool bEnable) = 0;
+	virtual void PollInputState() = 0;
+	virtual int GetPollTick() const = 0;
+	virtual bool IsButtonDown(ButtonCode_t code) const = 0;
+	virtual int GetButtonPressedTick(ButtonCode_t code) const = 0;
+	virtual int GetButtonReleasedTick(ButtonCode_t code) const = 0;
+	virtual int GetAnalogValue(AnalogCode_t code) const = 0;
+	virtual int GetAnalogDelta(AnalogCode_t code) const = 0;
+	virtual int GetEventCount() const = 0;
+	virtual const void* GetEventData() const = 0;
+	virtual void PostUserEvent(const void* event) = 0;
+	virtual int GetJoystickCount() const = 0;
+	virtual void EnableJoystickInput(int nJoystick, bool bEnable) = 0;
+	virtual void EnableJoystickDiagonalPOV(int nJoystick, bool bEnable) = 0;
+	virtual void SampleDevices(void) = 0;
+	virtual void SetRumble(float fLeftMotor, float fRightMotor, int userId = INVALID_USER_ID) = 0;
+	virtual void StopRumble(void) = 0;
+	virtual void ResetInputState() = 0;
+	virtual void SetPrimaryUserId(int userId) = 0;
+	virtual const char* ButtonCodeToString(ButtonCode_t code) const = 0;
+	virtual const char* AnalogCodeToString(AnalogCode_t code) const = 0;
+	virtual ButtonCode_t StringToButtonCode(const char* pString) const = 0;
+	virtual AnalogCode_t StringToAnalogCode(const char* pString) const = 0;
+	virtual void SleepUntilInput(int nMaxSleepTimeMS = -1) = 0;
+	virtual ButtonCode_t VirtualKeyToButtonCode(int nVirtualKey) const = 0;
+	virtual int ButtonCodeToVirtualKey(ButtonCode_t code) const = 0;
+	virtual ButtonCode_t ScanCodeToButtonCode(int lParam) const = 0;
+	virtual int GetPollCount() const = 0;
+	virtual void SetCursorPosition(int x, int y) = 0;
+	virtual void* GetHapticsInterfaceAddress() const = 0;
+	virtual void SetNovintPure(bool bPure) = 0;
+	virtual bool GetRawMouseAccumulators(int& accumX, int& accumY) = 0;
+	virtual void SetConsoleTextMode(bool bConsoleTextMode) = 0;
 
 };

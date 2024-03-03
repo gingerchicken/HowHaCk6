@@ -19,6 +19,8 @@ namespace HowHack {
 	VPanelWrapper* g_pVPanelWrapper;
 	ISurface* g_pISurface;
 	ClientModeShared* g_pClientMode;
+	CInputSystem* g_pInputSystem;
+	CMaterialSystem* g_pMaterialSystem;
 	
 	void UpdateLuaInterface(CLuaInterface* pLuaInterface);
 	void* GetInterface(const char* sModule, const char* sInterface);
@@ -53,6 +55,7 @@ void HowHack::LogInterfaces() {
 	HowHack::LogInterface((DWORD)g_pVPanelWrapper, "VPanelWrapper");
 	HowHack::LogInterface((DWORD)g_pISurface, "ISurface");
 	HowHack::LogInterface((DWORD)g_pClientMode, "ClientModeShared");
+	HowHack::LogInterface((DWORD)g_pMaterialSystem, "MaterialSystem");
 }
 
 void HowHack::SetupInterfaces() {
@@ -63,7 +66,9 @@ void HowHack::SetupInterfaces() {
 	g_pLuaShared = (CLuaShared*)GetInterface("lua_shared.dll", "LUASHARED003");
 	g_pVPanelWrapper = (VPanelWrapper*)GetInterface("vgui2.dll", "VGUI_Panel009");
 	g_pISurface = (ISurface*)GetInterface("vguimatsurface.dll", "VGUI_Surface030"); // TODO what about steam overlay?
-	
+	g_pInputSystem = (CInputSystem*)GetInterface("inputsystem.dll", "InputSystemVersion001");
+	g_pMaterialSystem = (CMaterialSystem*)GetInterface("materialsystem.dll", "VMaterialSystem080");
+
 	// Offset'd
 	g_pClientMode = GetVMT<ClientModeShared>((DWORD)g_pCHLClient, 10, OFFSET_CLIENT_MODE);
 }

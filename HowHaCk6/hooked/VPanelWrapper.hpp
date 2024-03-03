@@ -29,8 +29,7 @@ namespace HowHack {
 
 		HowHack::DrawString("Legacy is a good developer.", HUDNumber5, 5, 5);
 
-		// TODO add a menu and toggle this
-		HowHack::CheatESP::DrawESP();
+		HowHack::oESP.DrawESP();
 	}
 }
 

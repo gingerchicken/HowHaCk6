@@ -7,12 +7,14 @@
 #include "../drawutil.hpp"
 #include "../sourcesdk/sdk.h"
 
+#include "module.hpp"
+
 namespace HowHack {
 
 	// TODO make this a singleton
-	class CheatESP {
+	class CheatESP : public Module {
 	public:
-		static void DrawBoundingBox(C_BasePlayer* pPlayer, player_info_t& oPlayerInfo, bool bBox = true, bool bFill = true, bool bInfo = true) {
+		void DrawBoundingBox(C_BasePlayer* pPlayer, player_info_t& oPlayerInfo, bool bBox = true, bool bFill = true, bool bInfo = true) {
 			CCollisionProperty* pCollision = pPlayer->GetCollideable();
 
 			// Get the absolute origin
@@ -88,7 +90,9 @@ namespace HowHack {
 #endif
 		}
 
-		static void DrawESP() {
+		void DrawESP() {
+			if (!m_bEnable) return;
+
 			// Ensure we are in game
 			if (!g_pEngineClient->IsInGame()) return;
 
@@ -116,6 +120,8 @@ namespace HowHack {
 			}	
 		}
 	};
+
+	CheatESP oESP;
 }
 
 #endif // !ESP_H

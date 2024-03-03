@@ -7,7 +7,7 @@
 #include "../sourcesdk/sdk.h"
 #include "../interfaces.hpp"
 
-extern class IDirect3DDevice9;
+#include "../menu.hpp"
 
 typedef HRESULT(__stdcall* PresentFn)(IDirect3DDevice9*, CONST RECT*, CONST RECT*, HWND, CONST RGNDATA*);
 
@@ -16,8 +16,9 @@ namespace HowHack {
 
 	HRESULT __stdcall hkPresent(IDirect3DDevice9* pDevice,
 		CONST RECT* pSourceRect, CONST RECT* pDestRect, HWND hDestWindowOverride, CONST RGNDATA* pDirtyRegion) {
-		HowHack::Log("Yo!\n");
 		
+		HowHack::PresentMenu(pDevice, pSourceRect, pDestRect, hDestWindowOverride, pDirtyRegion);
+
 		return g_pOPresent(pDevice, pSourceRect, pDestRect, hDestWindowOverride, pDirtyRegion);
 	}
 }

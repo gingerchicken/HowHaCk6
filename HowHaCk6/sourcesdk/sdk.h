@@ -31,4 +31,6 @@
 #include "client/IGameMovement.h"
 #include "vgui/ISurface.h"
 
+class IDirect3DDevice9;
+
 #endif
