@@ -185,6 +185,7 @@
     <ClInclude Include="imgui\imstb_truetype.h" />
     <ClInclude Include="interfaces.hpp" />
     <ClInclude Include="menu.hpp" />
+    <ClInclude Include="modules\bhop.hpp" />
     <ClInclude Include="modules\esp.hpp" />
     <ClInclude Include="modules\luagrab.hpp" />
     <ClInclude Include="modules\module.hpp" />

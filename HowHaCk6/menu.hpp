@@ -11,8 +11,6 @@
 #pragma comment(lib, "d3d9.lib")
 #pragma comment(lib, "d3dx9.lib")
 
-#include "verdana.h"
-
 #include "imgui/imgui.h"
 #include "imgui/backends/imgui_impl_dx9.h"
 #include "imgui/backends/imgui_impl_win32.h"
@@ -45,8 +43,12 @@ namespace HowHack {
 void BuildMenu() {
 	// ESP
 	if (ImGui::Checkbox("ESP", &HowHack::oESP.m_bEnable)) {
-
+		// TODO more settings
 	}
+
+	ImGui::Checkbox("Lua Grab", &HowHack::oLuaGrab.m_bEnable);
+
+	ImGui::Checkbox("Bunny Hop", &HowHack::oBhop.m_bEnable);
 }
 
 void MenuKeyHandle(const HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam) {

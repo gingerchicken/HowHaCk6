@@ -282,6 +282,9 @@
     <ClInclude Include="modules\module.hpp">
       <Filter>Archivos de encabezado\modules</Filter>
     </ClInclude>
+    <ClInclude Include="modules\bhop.hpp">
+      <Filter>Archivos de encabezado\modules</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">

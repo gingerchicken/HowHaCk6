@@ -43,7 +43,7 @@ namespace HowHack {
 #endif
         const char* szFilename, const char* szPath, const char* szStringToRun, bool bRun, bool bPrintErrors, bool bDontPushErrors, bool bNoReturns) {
         
-        HowHack::CheatLuaGrab::SaveLuaFile(_this, szFilename, szPath, szStringToRun, bRun, bPrintErrors, bDontPushErrors, bNoReturns);
+        HowHack::oLuaGrab.SaveLuaFile(_this, szFilename, szPath, szStringToRun, bRun, bPrintErrors, bDontPushErrors, bNoReturns);
 
         return g_pORunStringEx(_this, szFilename, szPath, szStringToRun, bRun, bPrintErrors, bDontPushErrors, bNoReturns);
     }

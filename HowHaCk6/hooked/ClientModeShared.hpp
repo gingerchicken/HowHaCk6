@@ -6,6 +6,7 @@
 #include "../gconsole.h"
 #include "../sourcesdk/sdk.h"
 #include "../interfaces.hpp"
+#include "../modules/bhop.hpp"
 
 typedef bool(__thiscall* CreateMoveFn)(ClientModeShared* _this, float flInputSampleTime, CUserCmd* pCmd);
 
@@ -18,7 +19,7 @@ namespace HowHack {
 #endif
 		float flInputSampleTime, CUserCmd* pCmd) {
 		
-		// TODO - Add your own code here
+		oBhop.Hop(pCmd);
 
 		return g_pOCreateMove(_this, flInputSampleTime, pCmd);
 	}

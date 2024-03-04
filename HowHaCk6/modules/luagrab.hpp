@@ -10,9 +10,10 @@
 
 #include "../interfaces.hpp"
 #include "../gconsole.h"
+#include "module.hpp"
 
 namespace HowHack {
-	class CheatLuaGrab {
+	class CheatLuaGrab : public Module {
 	public:
 		static std::string GetLuaSavePath() {
 			// TODO read a config or something
@@ -40,7 +41,9 @@ namespace HowHack {
 			return szName;
 		}
 
-		static void SaveLuaFile(CLuaInterface* pLua, const char* szFilename, const char* szPath, const char* szStringToRun, bool bRun, bool bPrintErrors, bool bDontPushErrors, bool bNoReturns) {
+		void SaveLuaFile(CLuaInterface* pLua, const char* szFilename, const char* szPath, const char* szStringToRun, bool bRun, bool bPrintErrors, bool bDontPushErrors, bool bNoReturns) {
+			if (!m_bEnable) return;
+			
 			std::string szRoot = GetLuaSavePath() + "\\" + GetServerName();
 
 			// Create the directory recursively
@@ -70,6 +73,8 @@ namespace HowHack {
 			oFile.close();
 		}
 	};
+
+	CheatLuaGrab oLuaGrab;
 }
 
 #endif
