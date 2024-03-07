@@ -9,6 +9,7 @@
 #include "drawutil.hpp"
 
 #include "../modules/esp.hpp"
+#include "../modules/watermark.hpp"
 
 typedef void(__thiscall* PaintTraverseFn)(VPanelWrapper*, VPanel* pPanel, bool bForceRepaint, bool bForceAllow);
 
@@ -27,9 +28,9 @@ namespace HowHack {
 		const char* szName = HowHack::g_pVPanelWrapper->GetName(pPanel);
 		if (strcmp(szName, "HudGMOD")) return;
 
-		HowHack::DrawString("Legacy is a good developer.", HUDNumber5, 5, 5);
-
+		// Render cheats
 		HowHack::oESP.DrawESP();
+		HowHack::oWatermark.DrawWatermark();
 	}
 }
 

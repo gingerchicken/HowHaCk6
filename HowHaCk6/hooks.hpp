@@ -11,11 +11,13 @@
 #include "hooked/VPanelWrapper.hpp"
 #include "hooked/ClientModeShared.hpp"
 #include "hooked/Present.hpp"
+#include "hooked/CViewRender.h"
 
 namespace HowHack {
 	VMTHook* g_pCLuaSharedHook;
 	VMTHook* g_pVPanelWrapperHook;
 	VMTHook* g_pClientModeHook;
+	VMTHook* g_pRenderViewHook;
 
 	void SetupHooks() {
 		g_pCLuaSharedHook = new VMTHook(g_pLuaShared);
@@ -26,7 +28,10 @@ namespace HowHack {
 
 		g_pClientModeHook = new VMTHook(g_pClientMode);
 		g_pOCreateMove = (CreateMoveFn)g_pClientModeHook->hookFunction(21, hkCreateMove);
-	
+
+		g_pRenderViewHook = new VMTHook(g_pViewRender);
+		g_pORenderView = (RenderViewFn)g_pRenderViewHook->hookFunction(6, hkRenderView);
+
 		// Present
 		char* pPresent = GetRealFromRelative((char*)FindPattern(MODULE_PRESENT, PATTERN_PRESENT), 2, 6, false);
 		g_pOPresent = *(PresentFn*)(pPresent);
@@ -39,6 +44,7 @@ namespace HowHack {
 		LogHook((DWORD)g_pOPaintTraverse, "VPanelWrapper::PaintTraverse");
 		LogHook((DWORD)g_pOCreateMove, "ClientModeShared::CreateMove");
 		LogHook((DWORD)g_pOPresent, "IDirect3DDevice9::Present");
+		LogHook((DWORD)g_pORenderView, "CViewRender::RenderView");
 	}
 }
 

@@ -6,12 +6,15 @@
 #include "../gconsole.h"
 #include "../sourcesdk/sdk.h"
 #include "../interfaces.hpp"
+
 #include "../modules/bhop.hpp"
+#include "../modules/antiaim.hpp"
 
 typedef bool(__thiscall* CreateMoveFn)(ClientModeShared* _this, float flInputSampleTime, CUserCmd* pCmd);
 
 namespace HowHack {
 	CreateMoveFn g_pOCreateMove;
+	QAngle oOldAngles(0,0,0);
 
 	bool __fastcall hkCreateMove(ClientModeShared* _this,
 #ifndef _WIN64
@@ -21,7 +24,21 @@ namespace HowHack {
 		
 		oBhop.Hop(pCmd);
 
-		return g_pOCreateMove(_this, flInputSampleTime, pCmd);
+		oOldAngles = pCmd->viewangles;
+		
+		// Thingy
+		if (pCmd->command_number == 0 || !g_pEngineClient->IsInGame() || !GetLocalPlayer() || !GetLocalPlayer()->IsAlive()) {
+			g_pOCreateMove(_this, flInputSampleTime, pCmd);
+			return false;
+		}
+
+		if (oAntiAim.AfterCreateMove(pCmd)) {
+			CorrectMovement(pCmd, oOldAngles);
+			return false;
+		}
+
+		g_pOCreateMove(_this, flInputSampleTime, pCmd);
+		return false;
 	}
 }
 

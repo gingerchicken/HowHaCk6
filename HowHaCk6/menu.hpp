@@ -49,6 +49,10 @@ void BuildMenu() {
 	ImGui::Checkbox("Lua Grab", &HowHack::oLuaGrab.m_bEnable);
 
 	ImGui::Checkbox("Bunny Hop", &HowHack::oBhop.m_bEnable);
+
+	ImGui::Checkbox("Watermark", &HowHack::oWatermark.m_bEnable);
+
+	ImGui::Checkbox("Anti-Aim", &HowHack::oAntiAim.m_bEnable);
 }
 
 void MenuKeyHandle(const HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam) {

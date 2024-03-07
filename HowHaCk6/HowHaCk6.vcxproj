@@ -172,6 +172,7 @@
     <ClInclude Include="gconsole.h" />
     <ClInclude Include="hooked\ClientModeShared.hpp" />
     <ClInclude Include="hooked\CLuaShared.hpp" />
+    <ClInclude Include="hooked\CViewRender.h" />
     <ClInclude Include="hooked\Present.hpp" />
     <ClInclude Include="hooked\VPanelWrapper.hpp" />
     <ClInclude Include="hooks.hpp" />
@@ -184,11 +185,14 @@
     <ClInclude Include="imgui\imstb_textedit.h" />
     <ClInclude Include="imgui\imstb_truetype.h" />
     <ClInclude Include="interfaces.hpp" />
+    <ClInclude Include="mathutil.hpp" />
     <ClInclude Include="menu.hpp" />
+    <ClInclude Include="modules\antiaim.hpp" />
     <ClInclude Include="modules\bhop.hpp" />
     <ClInclude Include="modules\esp.hpp" />
     <ClInclude Include="modules\luagrab.hpp" />
     <ClInclude Include="modules\module.hpp" />
+    <ClInclude Include="modules\watermark.hpp" />
     <ClInclude Include="offsets.h" />
     <ClInclude Include="patterns.hpp" />
     <ClInclude Include="pch.h" />

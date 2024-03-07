@@ -21,6 +21,7 @@ namespace HowHack {
 	ClientModeShared* g_pClientMode;
 	CInputSystem* g_pInputSystem;
 	CMaterialSystem* g_pMaterialSystem;
+	CViewRender* g_pViewRender;
 	
 	void UpdateLuaInterface(CLuaInterface* pLuaInterface);
 	void* GetInterface(const char* sModule, const char* sInterface);
@@ -56,6 +57,7 @@ void HowHack::LogInterfaces() {
 	HowHack::LogInterface((DWORD)g_pISurface, "ISurface");
 	HowHack::LogInterface((DWORD)g_pClientMode, "ClientModeShared");
 	HowHack::LogInterface((DWORD)g_pMaterialSystem, "MaterialSystem");
+	HowHack::LogInterface((DWORD)g_pViewRender, "ViewRender");
 }
 
 void HowHack::SetupInterfaces() {
@@ -71,6 +73,7 @@ void HowHack::SetupInterfaces() {
 
 	// Offset'd
 	g_pClientMode = GetVMT<ClientModeShared>((DWORD)g_pCHLClient, 10, OFFSET_CLIENT_MODE);
+	g_pViewRender = GetVMT<CViewRender>((DWORD)g_pCHLClient, 2, OFFSET_VIEWRENDER);
 }
 
 C_BasePlayer* HowHack::GetLocalPlayer() {
