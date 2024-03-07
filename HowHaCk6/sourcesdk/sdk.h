@@ -30,6 +30,8 @@
 #include "client/IPrediction.h"
 #include "client/IGameMovement.h"
 #include "vgui/ISurface.h"
+#include "engine/gametrace.h"
+#include "mathlib/mathlib.h"
 
 class IDirect3DDevice9;
 

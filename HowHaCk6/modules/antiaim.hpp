@@ -25,6 +25,8 @@ namespace HowHack {
 		}
 	};
 
+
+
 	AntiAim oAntiAim;
 }
 

@@ -288,14 +288,17 @@
     <ClInclude Include="modules\watermark.hpp">
       <Filter>Archivos de encabezado\modules</Filter>
     </ClInclude>
-    <ClInclude Include="modules\antiaim.hpp">
-      <Filter>Archivos de encabezado\modules</Filter>
-    </ClInclude>
     <ClInclude Include="mathutil.hpp">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="hooked\CViewRender.h">
       <Filter>Archivos de encabezado\hooked</Filter>
+    </ClInclude>
+    <ClInclude Include="modules\antiaim.hpp">
+      <Filter>Archivos de encabezado\modules</Filter>
+    </ClInclude>
+    <ClInclude Include="modules\aimbot.hpp">
+      <Filter>Archivos de encabezado\modules</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

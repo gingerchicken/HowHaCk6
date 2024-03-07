@@ -187,6 +187,7 @@
     <ClInclude Include="interfaces.hpp" />
     <ClInclude Include="mathutil.hpp" />
     <ClInclude Include="menu.hpp" />
+    <ClInclude Include="modules\aimbot.hpp" />
     <ClInclude Include="modules\antiaim.hpp" />
     <ClInclude Include="modules\bhop.hpp" />
     <ClInclude Include="modules\esp.hpp" />

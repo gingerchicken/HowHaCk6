@@ -53,6 +53,8 @@ void BuildMenu() {
 	ImGui::Checkbox("Watermark", &HowHack::oWatermark.m_bEnable);
 
 	ImGui::Checkbox("Anti-Aim", &HowHack::oAntiAim.m_bEnable);
+
+	ImGui::Checkbox("Aimbot", &HowHack::oAimbot.m_bEnable);
 }
 
 void MenuKeyHandle(const HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam) {

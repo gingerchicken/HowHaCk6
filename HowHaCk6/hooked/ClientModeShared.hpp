@@ -9,6 +9,7 @@
 
 #include "../modules/bhop.hpp"
 #include "../modules/antiaim.hpp"
+#include "../modules/aimbot.hpp"
 
 typedef bool(__thiscall* CreateMoveFn)(ClientModeShared* _this, float flInputSampleTime, CUserCmd* pCmd);
 
@@ -32,13 +33,17 @@ namespace HowHack {
 			return false;
 		}
 
+		if (oAimbot.AfterCreateMove(pCmd)) {
+			CorrectMovement(pCmd, oOldAngles);
+			return false;
+		}
+
 		if (oAntiAim.AfterCreateMove(pCmd)) {
 			CorrectMovement(pCmd, oOldAngles);
 			return false;
 		}
 
-		g_pOCreateMove(_this, flInputSampleTime, pCmd);
-		return false;
+		return g_pOCreateMove(_this, flInputSampleTime, pCmd);
 	}
 }
 

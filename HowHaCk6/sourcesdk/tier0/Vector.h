@@ -2489,3 +2489,35 @@ FORCEINLINE QAngle Vector::AngleTo(const Vector& vOther)
 	}
 	return QAngle(0, 0, 0);
 }
+
+//-----------------------------------------------------------------------------
+// constructors
+//-----------------------------------------------------------------------------
+
+inline Vector2D::Vector2D(void)
+{
+#ifdef _DEBUG
+	// Initialize to NAN to catch errors
+	x = y = VEC_T_NAN;
+#endif
+}
+
+inline Vector2D::Vector2D(vec_t X, vec_t Y)
+{
+	x = X; y = Y;
+}
+
+inline Vector2D::Vector2D(const float* pFloat)
+{
+	x = pFloat[0]; y = pFloat[1];
+}
+
+
+//-----------------------------------------------------------------------------
+// copy constructor
+//-----------------------------------------------------------------------------
+
+inline Vector2D::Vector2D(const Vector2D& vOther)
+{
+	x = vOther.x; y = vOther.y;
+}

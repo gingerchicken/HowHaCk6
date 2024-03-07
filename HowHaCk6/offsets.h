@@ -9,6 +9,7 @@
 #define OFFSET_GLOBAL_VARIABLES 0x94
 #define OFFSET_CLIENT_MODE 0x0
 #define OFFSET_VIEWRENDER 0xC4
+#define OFFSET_GLOBALVARS 0x94
 
 #define MODULE_PRESENT "gameoverlayrenderer"
 #define PATTERN_PRESENT "\xFF\x15????\x8B\xF8\xEB\x1E"
@@ -21,6 +22,7 @@
 #define OFFSET_GLOBAL_VARIABLES 0x59
 #define OFFSET_CLIENT_MODE 0x5
 #define OFFSET_VIEWRENDER 0xA6
+#define OFFSET_GLOBALVARS 0x55
 
 #define MODULE_PRESENT "gameoverlayrenderer"
 #define PATTERN_PRESENT "\xFF\x15????\x8B\xF0\x85\xFF"

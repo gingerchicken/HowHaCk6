@@ -22,6 +22,9 @@ namespace HowHack {
 	CInputSystem* g_pInputSystem;
 	CMaterialSystem* g_pMaterialSystem;
 	CViewRender* g_pViewRender;
+	CGlobalVarsBase* g_pGlobalVarsBase;
+	CModelInfo* g_pModelInfo;
+	IEngineTrace* g_pEngineTrace;
 	
 	void UpdateLuaInterface(CLuaInterface* pLuaInterface);
 	void* GetInterface(const char* sModule, const char* sInterface);
@@ -58,6 +61,9 @@ void HowHack::LogInterfaces() {
 	HowHack::LogInterface((DWORD)g_pClientMode, "ClientModeShared");
 	HowHack::LogInterface((DWORD)g_pMaterialSystem, "MaterialSystem");
 	HowHack::LogInterface((DWORD)g_pViewRender, "ViewRender");
+	HowHack::LogInterface((DWORD)g_pGlobalVarsBase, "CGlobalVarsBase");
+	HowHack::LogInterface((DWORD)g_pModelInfo, "ModelInfo");
+	HowHack::LogInterface((DWORD)g_pEngineTrace, "IEngineTrace");
 }
 
 void HowHack::SetupInterfaces() {
@@ -70,10 +76,13 @@ void HowHack::SetupInterfaces() {
 	g_pISurface = (ISurface*)GetInterface("vguimatsurface.dll", "VGUI_Surface030"); // TODO what about steam overlay?
 	g_pInputSystem = (CInputSystem*)GetInterface("inputsystem.dll", "InputSystemVersion001");
 	g_pMaterialSystem = (CMaterialSystem*)GetInterface("materialsystem.dll", "VMaterialSystem080");
+	g_pModelInfo = (CModelInfo*)GetInterface("engine.dll", "VModelInfoClient006");
+	g_pEngineTrace = (IEngineTrace*)GetInterface("engine.dll", "EngineTraceClient003");
 
 	// Offset'd
 	g_pClientMode = GetVMT<ClientModeShared>((DWORD)g_pCHLClient, 10, OFFSET_CLIENT_MODE);
 	g_pViewRender = GetVMT<CViewRender>((DWORD)g_pCHLClient, 2, OFFSET_VIEWRENDER);
+	g_pGlobalVarsBase = GetVMT<CGlobalVarsBase>((DWORD)g_pCHLClient, 0, OFFSET_GLOBALVARS);
 }
 
 C_BasePlayer* HowHack::GetLocalPlayer() {
